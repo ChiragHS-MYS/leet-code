@@ -1,4 +1,4 @@
-// Last updated: 18/3/2026, 10:38:56 pm
+// Last updated: 26/3/2026, 10:35:40 pm
 1class Solution {
 2public:
 3    string longestCommonPrefix(vector<string>& v) {
