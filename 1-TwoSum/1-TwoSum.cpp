@@ -1,30 +1,19 @@
-// Last updated: 22/2/2026, 10:20:42 pm
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        
-        vector<pair<int, int>> temp;
-
-        for(int i = 0; i < nums.size(); i++) {
-            temp.push_back({nums[i], i});
-        }
-
-        sort(temp.begin(), temp.end());
-
-        int left = 0, right = nums.size() - 1;
-
-        while(left <= right) {
-            int sum = temp[left].first + temp[right].first;
-
-            if(sum == target) {
-                return {temp[left].second, temp[right].second};
-            } else if(sum < target) {
-                left++;
-            } else {
-                right--;
-            }
-        }
-
-        return {-1, -1};
-    }
-};
+// Last updated: 16/4/2026, 10:50:48 pm
+1class Solution {
+2public:
+3    vector<int> twoSum(vector<int>& nums, int target) {
+4        unordered_map<int, int> mp;
+5
+6        for(int i = 0; i < nums.size(); i++) {
+7            int complement = target - nums[i];
+8
+9            if(mp.find(complement) != mp.end()) {
+10                return {mp[complement], i};
+11            }
+12
+13            mp[nums[i]] = i;
+14        }
+15
+16        return {};
+17    }
+18};
