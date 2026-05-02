@@ -1,4 +1,4 @@
-// Last updated: 2/5/2026, 12:23:51 am
+// Last updated: 2/5/2026, 11:31:18 pm
 1class Solution {
 2public:
 3    int numSubarrayProductLessThanK(vector<int>& nums, int k) {
