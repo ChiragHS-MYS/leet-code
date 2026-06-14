@@ -1,22 +1,22 @@
-// Last updated: 1/4/2026, 10:32:45 pm
+// Last updated: 14/6/2026, 7:51:40 am
 1class Solution {
 2public:
 3    void sortColors(vector<int>& nums) {
-4        int count[3]={0},k=0;
-5        for(int i=0;i<nums.size();i++){
-6            if(nums[i]==0)count[0]++;
-7            else if(nums[i]==1)count[1]++;
-8            else count[2]++;
-9        }
-10        for(int i=0;i<3;i++)
-11        {
-12            while(count[i]){
-13                nums[k]=i;
-14                k+=1;
-15                count[i]--;
-16
-17            }
-18        }
-19        
+4        int low = 0, mid = 0;
+5        int high = nums.size() - 1;
+6
+7        while (mid <= high) {
+8            if (nums[mid] == 0) {
+9                swap(nums[low], nums[mid]);
+10                low++; mid++;
+11            }
+12            else if (nums[mid] == 1) {
+13                mid++;
+14            }
+15            else {
+16                swap(nums[mid], nums[high]);
+17                high--;
+18            }
+19        }
 20    }
 21};
