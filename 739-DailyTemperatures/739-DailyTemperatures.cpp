@@ -1,22 +1,24 @@
-// Last updated: 19/2/2026, 9:13:39 am
-class Solution {
-public:
-    vector<int> dailyTemperatures(vector<int>& temperatures) {
-        vector<int> result(temperatures.size(), 0); // Initialize the result vector with zeros
-        stack<int> stack; // Stack to keep track of indices
-
-        for (int i = 0; i < temperatures.size(); i++) {
-            int val = temperatures[i];
-            // While stack is not empty and current temperature is greater than
-            // the temperature represented by the index at the top of the stack
-            while (!stack.empty() && val > temperatures[stack.top()]) {
-                int index = stack.top(); // Get the index at the top of the stack
-                stack.pop(); // Pop from the stack
-                result[index] = i - index; // Update the result
-            }
-            stack.push(i); // Add current temperature index to stack
-        }
-
-        return result;
-    }
-};
+// Last updated: 9/7/2026, 10:44:48 am
+1class Solution {
+2public:
+3    vector<int> dailyTemperatures(vector<int>& temperatures) {
+4
+5        stack<int> st;
+6        vector<int> ans(temperatures.size(),0);
+7
+8        for(int i = temperatures.size()-1; i >= 0; i--){
+9
+10            while(!st.empty() && temperatures[st.top()] <= temperatures[i]){
+11                st.pop();
+12            }
+13
+14            if(!st.empty()){
+15                ans[i] = st.top() - i;
+16            }
+17
+18            st.push(i);
+19        }
+20
+21        return ans;
+22    }
+23};
